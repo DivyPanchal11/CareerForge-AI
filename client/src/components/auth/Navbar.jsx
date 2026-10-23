@@ -1,15 +1,26 @@
 import {
   Home,
   LayoutDashboard,
+  FileText,
   Briefcase,
-  BookOpen,
+  Brain,
   User,
   Rocket,
+  LogOut,
 } from "lucide-react";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { logoutUser } from "../../services/authService";
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logoutUser();
+    toast.success("Logged out successfully");
+    navigate("/login");
+  };
   const navItems = [
     {
       name: "Home",
@@ -22,14 +33,19 @@ function Navbar() {
       icon: LayoutDashboard,
     },
     {
+      name: "Resumes",
+      path: "/resumes",
+      icon: FileText,
+    },
+    {
       name: "Interviews",
       path: "/interviews",
       icon: Briefcase,
     },
     {
-      name: "Resources",
-      path: "/resources",
-      icon: BookOpen,
+      name: "Aptitude",
+      path: "/aptitude",
+      icon: Brain,
     },
     {
       name: "Profile",
@@ -56,30 +72,43 @@ function Navbar() {
           </h1>
         </NavLink>
 
-        {/* Navigation */}
-        <ul className="hidden md:flex items-center gap-8 text-gray-600">
-          {navItems.map((item) => {
-            const Icon = item.icon;
+        <div className="flex items-center gap-6">
+          {/* Navigation */}
+          <ul className="hidden md:flex items-center gap-8 text-gray-600">
+            {navItems.map((item) => {
+              const Icon = item.icon;
 
-            return (
-              <li key={item.name}>
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `flex items-center gap-2 cursor-pointer transition ${
-                      isActive
-                        ? "text-black border-b-2 border-black pb-1"
-                        : "hover:text-black"
-                    }`
-                  }
-                >
-                  <Icon size={18} />
-                  {item.name}
-                </NavLink>
-              </li>
-            );
-          })}
-        </ul>
+              return (
+                <li key={item.name}>
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `flex items-center gap-2 cursor-pointer transition ${
+                        isActive
+                          ? "text-black border-b-2 border-black pb-1"
+                          : "hover:text-black"
+                      }`
+                    }
+                  >
+                    <Icon size={18} />
+                    {item.name}
+                  </NavLink>
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* Log Out Button */}
+          <button
+            type="button"
+            onClick={handleLogout}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-gray-700 hover:text-red-600 hover:border-red-200 hover:bg-red-50/50 text-xs font-semibold transition cursor-pointer"
+            title="Log Out"
+          >
+            <LogOut size={15} />
+            <span className="hidden sm:inline">Log Out</span>
+          </button>
+        </div>
       </div>
     </nav>
   );

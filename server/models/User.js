@@ -41,6 +41,80 @@ const userSchema = new mongoose.Schema(
         resetPasswordExpire: {
             type: Date,
             default: null,
+        },
+        phone: {
+            type: String,
+            default: '',
+            trim: true,
+        },
+        location: {
+            city: { type: String, default: '', trim: true },
+            state: { type: String, default: '', trim: true },
+            country: { type: String, default: '', trim: true },
+        },
+        bio: {
+            type: String,
+            default: '',
+            trim: true,
+        },
+        education: [
+            {
+                institution: { type: String, required: true, trim: true },
+                degree: { type: String, required: true, trim: true },
+                fieldOfStudy: { type: String, default: '', trim: true },
+                graduationYear: { type: String, default: '', trim: true },
+                status: { type: String, default: 'Completed', trim: true },
+                grade: { type: String, default: '', trim: true },
+            }
+        ],
+        technicalSkills: [
+            { type: String, trim: true }
+        ],
+        softSkills: [
+            { type: String, trim: true }
+        ],
+        projects: [
+            {
+                title: { type: String, required: true, trim: true },
+                description: { type: String, default: '', trim: true },
+                technologies: [{ type: String, trim: true }],
+                liveUrl: { type: String, default: '', trim: true },
+                githubUrl: { type: String, default: '', trim: true },
+                startDate: { type: String, default: '', trim: true },
+                endDate: { type: String, default: '', trim: true },
+                isCurrent: { type: Boolean, default: false },
+            }
+        ],
+        certifications: [
+            {
+                name: { type: String, required: true, trim: true },
+                issuer: { type: String, required: true, trim: true },
+                issueDate: { type: String, default: '', trim: true },
+                expiryDate: { type: String, default: '', trim: true },
+                credentialId: { type: String, default: '', trim: true },
+                credentialUrl: { type: String, default: '', trim: true },
+            }
+        ],
+        experience: [
+            {
+                title: { type: String, required: true, trim: true },
+                company: { type: String, required: true, trim: true },
+                employmentType: { type: String, default: 'Full-time', trim: true },
+                startDate: { type: String, default: '', trim: true },
+                endDate: { type: String, default: '', trim: true },
+                isCurrent: { type: Boolean, default: false },
+                description: { type: String, default: '', trim: true },
+                technologies: [{ type: String, trim: true }],
+            }
+        ],
+        careerPreferences: {
+            targetRole: { type: String, default: '', trim: true },
+            preferredDomain: { type: String, default: '', trim: true },
+            targetCompany: { type: String, default: '', trim: true },
+            experienceLevel: { type: String, default: '', trim: true },
+            preferredLocation: { type: String, default: '', trim: true },
+            employmentType: { type: String, default: '', trim: true },
+            targetSkills: [{ type: String, trim: true }],
         }
     },
     {

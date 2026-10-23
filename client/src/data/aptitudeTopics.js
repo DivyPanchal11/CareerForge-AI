@@ -1,0 +1,317 @@
+/**
+ * Master Registry of Aptitude Topics
+ * Covers Quantitative (16), Logical Reasoning (15), and Verbal Ability (11) topics.
+ */
+
+export const QUANTITATIVE_TOPICS = [
+  {
+    id: "number-system",
+    name: "Number System",
+    category: "quantitative",
+    difficulty: "Medium",
+    description: "Divisibility rules, unit digits, remainders, factors, and LCM & HCF concepts.",
+  },
+  {
+    id: "simplification",
+    name: "Simplification",
+    category: "quantitative",
+    difficulty: "Easy",
+    description: "BODMAS rules, fractions, decimals, surds, and algebraic approximations.",
+  },
+  {
+    id: "percentages",
+    name: "Percentages",
+    category: "quantitative",
+    difficulty: "Easy",
+    description: "Percentage increase/decrease, successive changes, and base conversion.",
+  },
+  {
+    id: "profit-and-loss",
+    name: "Profit and Loss",
+    category: "quantitative",
+    difficulty: "Medium",
+    description: "Cost price, selling price, profit/loss percentage, marked price, and discounts.",
+  },
+  {
+    id: "ratio-and-proportion",
+    name: "Ratio and Proportion",
+    category: "quantitative",
+    difficulty: "Easy",
+    description: "Compound ratio, fourth proportional, mean proportional, and division of quantities.",
+  },
+  {
+    id: "averages",
+    name: "Averages",
+    category: "quantitative",
+    difficulty: "Easy",
+    description: "Arithmetic mean, weighted averages, and replacement of group members.",
+  },
+  {
+    id: "time-and-work",
+    name: "Time and Work",
+    category: "quantitative",
+    difficulty: "Medium",
+    description: "Work efficiency, unitary method, pipes and cisterns, and alternate work days.",
+  },
+  {
+    id: "time-speed-distance",
+    name: "Time, Speed and Distance",
+    category: "quantitative",
+    difficulty: "Medium",
+    description: "Relative speed, average speed, problems on trains, and boats & streams.",
+  },
+  {
+    id: "simple-interest",
+    name: "Simple Interest",
+    category: "quantitative",
+    difficulty: "Easy",
+    description: "Principal, rate of interest, time period, and straightforward annual interest.",
+  },
+  {
+    id: "compound-interest",
+    name: "Compound Interest",
+    category: "quantitative",
+    difficulty: "Hard",
+    description: "Annual and half-yearly compounding, differences between CI and SI.",
+  },
+  {
+    id: "problems-on-ages",
+    name: "Problems on Ages",
+    category: "quantitative",
+    difficulty: "Easy",
+    description: "Linear equations representing past, present, and future age relations.",
+  },
+  {
+    id: "mixtures-and-alligation",
+    name: "Mixtures and Alligation",
+    category: "quantitative",
+    difficulty: "Medium",
+    description: "Rule of alligation, ratio of ingredients, and repeated liquid dilution.",
+  },
+  {
+    id: "permutations-combinations",
+    name: "Permutations and Combinations",
+    category: "quantitative",
+    difficulty: "Hard",
+    description: "Factorials, arrangement of objects, circular permutations, and team selections.",
+  },
+  {
+    id: "probability",
+    name: "Probability",
+    category: "quantitative",
+    difficulty: "Medium",
+    description: "Sample spaces, coin tosses, dice rolls, pack of cards, and mutually exclusive events.",
+  },
+  {
+    id: "quant-number-series",
+    name: "Number Series",
+    category: "quantitative",
+    difficulty: "Medium",
+    description: "Arithmetic, geometric, alternating, and polynomial numerical patterns.",
+  },
+  {
+    id: "data-interpretation",
+    name: "Data Interpretation",
+    category: "quantitative",
+    difficulty: "Hard",
+    description: "Tables, bar graphs, line charts, pie charts, and data sufficiency analysis.",
+  },
+];
+
+export const LOGICAL_TOPICS = [
+  {
+    id: "number-series",
+    name: "Number Series",
+    category: "logical",
+    difficulty: "Easy",
+    description: "Identifying next or missing numbers in logical arithmetic patterns.",
+  },
+  {
+    id: "letter-series",
+    name: "Letter Series",
+    category: "logical",
+    difficulty: "Easy",
+    description: "Alphabetical sequence patterns, letter shifts, and repeating cycles.",
+  },
+  {
+    id: "coding-and-decoding",
+    name: "Coding and Decoding",
+    category: "logical",
+    difficulty: "Medium",
+    description: "Substitution ciphers, letter-to-number codes, and matrix coding rules.",
+  },
+  {
+    id: "blood-relations",
+    name: "Blood Relations",
+    category: "logical",
+    difficulty: "Medium",
+    description: "Family tree structures, maternal/paternal lineages, and coded relations.",
+  },
+  {
+    id: "direction-sense",
+    name: "Direction Sense",
+    category: "logical",
+    difficulty: "Easy",
+    description: "Cardinal directions, turns, shadow positioning, and shortest displacement.",
+  },
+  {
+    id: "syllogisms",
+    name: "Syllogisms",
+    category: "logical",
+    difficulty: "Hard",
+    description: "Venn diagram deductions from premises ('All A are B', 'Some B are C').",
+  },
+  {
+    id: "seating-arrangements",
+    name: "Seating Arrangements",
+    category: "logical",
+    difficulty: "Hard",
+    description: "Linear rows, circular tables facing inward/outward, and multi-variable constraints.",
+  },
+  {
+    id: "logical-puzzles",
+    name: "Logical Puzzles",
+    category: "logical",
+    difficulty: "Hard",
+    description: "Floor puzzles, scheduling, box stacking, and multi-attribute matching.",
+  },
+  {
+    id: "analogies",
+    name: "Analogies",
+    category: "logical",
+    difficulty: "Easy",
+    description: "Finding analogous relationships between words, numbers, or symbols.",
+  },
+  {
+    id: "classification",
+    name: "Classification",
+    category: "logical",
+    difficulty: "Easy",
+    description: "Odd-one-out categorization based on specific logical rules.",
+  },
+  {
+    id: "statement-and-conclusion",
+    name: "Statement and Conclusion",
+    category: "logical",
+    difficulty: "Medium",
+    description: "Evaluating which conclusion logically follows strictly from given facts.",
+  },
+  {
+    id: "statement-and-assumption",
+    name: "Statement and Assumption",
+    category: "logical",
+    difficulty: "Medium",
+    description: "Identifying unstated beliefs or assumptions taken for granted in statements.",
+  },
+  {
+    id: "ranking-and-ordering",
+    name: "Ranking and Ordering",
+    category: "logical",
+    difficulty: "Easy",
+    description: "Position in a queue from left/right or top/bottom, and comparisons.",
+  },
+  {
+    id: "clocks-and-calendars",
+    name: "Clocks and Calendars",
+    category: "logical",
+    difficulty: "Medium",
+    description: "Hands angle, clock gain/loss, leap year cycles, and day of the week determination.",
+  },
+  {
+    id: "non-verbal-reasoning",
+    name: "Non-verbal Reasoning",
+    category: "logical",
+    difficulty: "Medium",
+    description: "Pattern matrices, mirror images, paper folding, and embedded figures.",
+  },
+];
+
+export const VERBAL_TOPICS = [
+  {
+    id: "grammar",
+    name: "Grammar",
+    category: "verbal",
+    difficulty: "Medium",
+    description: "Parts of speech, subject-verb agreement, tenses, modals, and prepositions.",
+  },
+  {
+    id: "vocabulary",
+    name: "Vocabulary",
+    category: "verbal",
+    difficulty: "Medium",
+    description: "Word usage, contextual meanings, word roots, and precise diction.",
+  },
+  {
+    id: "synonyms-and-antonyms",
+    name: "Synonyms and Antonyms",
+    category: "verbal",
+    difficulty: "Easy",
+    description: "Identifying closest synonyms and opposite antonyms of target vocabulary.",
+  },
+  {
+    id: "sentence-correction",
+    name: "Sentence Correction",
+    category: "verbal",
+    difficulty: "Medium",
+    description: "Replacing grammatically erroneous phrases with correct idiom and syntax.",
+  },
+  {
+    id: "error-spotting",
+    name: "Error Spotting",
+    category: "verbal",
+    difficulty: "Medium",
+    description: "Locating syntactic or grammatical errors divided across sentence segments.",
+  },
+  {
+    id: "fill-in-the-blanks",
+    name: "Fill in the Blanks",
+    category: "verbal",
+    difficulty: "Easy",
+    description: "Selecting appropriate prepositions, conjunctions, or vocabulary for single blanks.",
+  },
+  {
+    id: "sentence-completion",
+    name: "Sentence Completion",
+    category: "verbal",
+    difficulty: "Medium",
+    description: "Dual-blank logic and contextual completion using sentence clues.",
+  },
+  {
+    id: "para-jumbles",
+    name: "Para Jumbles",
+    category: "verbal",
+    difficulty: "Hard",
+    description: "Reordering scrambled sentences to form a coherent, logical paragraph.",
+  },
+  {
+    id: "reading-comprehension",
+    name: "Reading Comprehension",
+    category: "verbal",
+    difficulty: "Hard",
+    description: "Inference, tone, central theme, and detail questions based on a provided passage.",
+  },
+  {
+    id: "idioms-and-phrases",
+    name: "Idioms and Phrases",
+    category: "verbal",
+    difficulty: "Easy",
+    description: "Deciphering figurative meanings of popular English idioms and proverbs.",
+  },
+  {
+    id: "one-word-substitution",
+    name: "One-word Substitution",
+    category: "verbal",
+    difficulty: "Easy",
+    description: "Identifying single precise words that replace entire phrases or definitions.",
+  },
+];
+
+export const ALL_TOPICS = [
+  ...QUANTITATIVE_TOPICS,
+  ...LOGICAL_TOPICS,
+  ...VERBAL_TOPICS,
+];
+
+export const getTopicById = (topicId) => {
+  return ALL_TOPICS.find((t) => t.id === topicId) || null;
+};

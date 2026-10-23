@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Brain,
   ArrowRight,
@@ -6,9 +7,14 @@ import {
   Lightbulb,
   BookOpen,
 } from "lucide-react";
+import { getAptitudeDashboardData } from "../../services/aptitudeService";
 
 function AptitudePreparation() {
-  const overallScore = 68;
+  const data = getAptitudeDashboardData();
+  const overallScore = data.hasHistory ? data.overallAccuracy : 0;
+  const quantScore = data.categoryAccuracy?.quantitative || 0;
+  const logicalScore = data.categoryAccuracy?.logical || 0;
+  const verbalScore = data.categoryAccuracy?.verbal || 0;
 
   return (
     <motion.div
@@ -82,7 +88,7 @@ function AptitudePreparation() {
           </p>
 
           <p className="text-sm font-bold text-gray-900 mt-1">
-            72%
+            {quantScore}%
           </p>
         </div>
 
@@ -98,7 +104,7 @@ function AptitudePreparation() {
           </p>
 
           <p className="text-sm font-bold text-gray-900 mt-1">
-            65%
+            {logicalScore}%
           </p>
         </div>
 
@@ -114,7 +120,7 @@ function AptitudePreparation() {
           </p>
 
           <p className="text-sm font-bold text-gray-900 mt-1">
-            68%
+            {verbalScore}%
           </p>
         </div>
       </div>
@@ -126,17 +132,18 @@ function AptitudePreparation() {
         </p>
 
         <p className="text-xs text-gray-500 mt-1">
-          Focus on logical reasoning and quantitative aptitude to improve
-          your overall score.
+          {data.hasHistory
+            ? "Practice recommended topics to improve your speed and overall accuracy rate."
+            : "Explore quantitative, logical reasoning, and verbal topics to prepare for placement drives."}
         </p>
       </div>
 
       {/* Action */}
-      <button
-        type="button"
+      <Link
+        to="/aptitude"
         className="
           mt-5
-          flex
+          inline-flex
           items-center
           gap-2
           text-sm
@@ -148,7 +155,7 @@ function AptitudePreparation() {
       >
         Start Aptitude Practice
         <ArrowRight size={16} />
-      </button>
+      </Link>
     </motion.div>
   );
 }

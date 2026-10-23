@@ -6,3 +6,109 @@ input::-ms-clear {
   display: none;
 }
 
+/* Print styling for resume PDF export and browser print */
+@page {
+  size: A4 portrait;
+  margin: 0mm;
+}
+
+@media print {
+  *, *::before, *::after {
+    box-sizing: border-box !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  html, body {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    background: #ffffff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* Hide navigation, footers, modals, buttons, floating tools */
+  nav,
+  header,
+  footer,
+  aside,
+  button,
+  .no-print,
+  [role="dialog"],
+  .fixed,
+  .sticky {
+    display: none !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  /* Reset all ancestors so screen zoom scaling never shrinks the printed document */
+  #root,
+  #root > *,
+  main,
+  .grid,
+  .zoom-container,
+  .resume-scale-wrapper,
+  div[style*="scale"] {
+    transform: none !important;
+    transform-origin: 0 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    max-width: 210mm !important;
+    min-width: 210mm !important;
+    min-height: 0 !important;
+    height: auto !important;
+    display: block !important;
+    position: static !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  #resume-preview-content,
+  #resume-preview-content * {
+    visibility: visible !important;
+  }
+
+  #resume-preview-content {
+    position: static !important;
+    width: 210mm !important;
+    max-width: 210mm !important;
+    min-width: 210mm !important;
+    min-height: 297mm !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  .resume-page-sheet {
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+
+  .resume-page-sheet:last-child {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+}
+

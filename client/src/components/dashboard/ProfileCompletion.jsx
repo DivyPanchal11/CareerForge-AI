@@ -1,8 +1,27 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { UserRound, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { getProfile } from "../../services/profileService";
 
 function ProfileCompletion() {
-  const completion = 82;
+  const [completion, setCompletion] = useState(82);
+
+  useEffect(() => {
+    let isMounted = true;
+    getProfile()
+      .then((data) => {
+        if (isMounted && data?.completion?.percentage !== undefined) {
+          setCompletion(data.completion.percentage);
+        }
+      })
+      .catch((err) => {
+        console.warn("Could not load dynamic completion:", err.message);
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <motion.div
@@ -12,7 +31,6 @@ function ProfileCompletion() {
       className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm"
     >
       <div className="flex items-center justify-between">
-
         {/* Left */}
         <div className="flex items-center gap-4">
           <div className="w-11 h-11 rounded-xl bg-black flex items-center justify-center">
@@ -49,13 +67,13 @@ function ProfileCompletion() {
       </div>
 
       {/* Action */}
-      <button
-        type="button"
-        className="mt-4 flex items-center gap-2 text-sm font-semibold text-gray-900 hover:gap-3 transition-all"
+      <Link
+        to="/profile"
+        className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gray-900 hover:gap-3 transition-all"
       >
         Complete Profile
         <ArrowRight size={16} />
-      </button>
+      </Link>
     </motion.div>
   );
 }

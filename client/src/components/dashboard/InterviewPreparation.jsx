@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Video,
   ArrowRight,
@@ -112,11 +113,11 @@ function InterviewPreparation() {
       </div>
 
       {/* Button */}
-      <button
-        type="button"
+      <Link
+        to="/interviews"
         className="
           mt-5
-          flex
+          inline-flex
           items-center
           gap-2
           text-sm
@@ -128,7 +129,7 @@ function InterviewPreparation() {
       >
         Start Mock Interview
         <ArrowRight size={16} />
-      </button>
+      </Link>
     </motion.div>
   );
 }
